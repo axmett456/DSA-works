@@ -3,50 +3,52 @@ Ahmed Mahamed aweys  ||  c1240576
 
 
 
-# Data_Structures_Using_Java# 
-🏥 Hospital Package - OOP Assignment
+ 
+---
+# Hospital Package – DSA OOP Assignment
 
-Java-based console application implementing Object-Oriented Programming (OOP) concepts (Inheritance and Polymorphism) for a hospital management and reception system.
+This project is a Java-based implementation of a **Hospital Package Billing Management System** created for the **Data Structures and Algorithms (DSA) / Object-Oriented Programming (OOP)** coursework. It demonstrates core OOP principles including **Inheritance**, **Encapsulation**, and **Method Overriding**.
 
 ---
 
-## 📂 Project Structure
+## 📌 Problem Overview
 
-The project is organized under the package `HOSPITAL` and consists of the following classes:
+The assignment requires creating a hospital billing system structured using an inheritance hierarchy:
 
-1. **`Patient.java` (Superclass):**
-   * Acts as the parent class for all patients.
-   * Properties: `magac` (Name) and `fee` (Consultation Fee).
+### 1. Superclass: `Patient`
+* **Package**: `hospital`
+* **Attributes**:
+  * `name` (String) - Patient's full name
+  * `consultFee` (double) - Consultation fee
+* **Methods**:
+  * Parameterized and Default Constructors
+  * Getters and Setters (`getName()`, `getConsultFee()`, etc.)
+  * `CalculateBill()` - Base calculation method returning the consultation fee
+  * `displayDetails()` - Prints patient information
 
-2. **`Inpatient.java` (Subclass):**
-   * Inherits from `Patient`.
-   * Additional Properties: `roomCharge` and `numberOfDays`.
-   * Method: `calculateBill()` to compute total fees based on room charges and days stayed.
+### 2. Subclass 1: `Outpatient`
+* Inherits from `Patient` (`extends Patient`)
+* **Additional Attribute**:
+  * `labCharge` (double) - Laboratory fee
+* **Calculation**:
+  $$\text{Total Bill} = \text{LabCharge} + \text{ConsultFee}$$
 
-3. **`Outpatient.java` (Subclass):**
-   * Inherits from `Patient`.
-   * Additional Property: `labCharge`.
-   * Method: `calculateBill()` to compute total fees including laboratory charges.
-
-4. **`HospitalReception.java` (Main Class):**
-   * Acts as the reception desk.
-   * Initializes and displays billing details for both Inpatients and Outpatients.
-
----
-
-## 🧮 Bill Calculation Logic
-
-* **Inpatient Total Bill:** 
-  $$\text{Total Bill} = (\text{numberOfDays} \times \text{roomCharge}) + \text{fee}$$
-
-* **Outpatient Total Bill:** 
-  $$\text{Total Bill} = \text{labCharge} + \text{fee}$$
+### 3. Subclass 2: `Inpatient`
+* Inherits from `Patient` (`extends Patient`)
+* **Additional Attributes**:
+  * `roomCharge` (double) - Daily room fee
+  * `numberOfDays` (int) - Number of days admitted
+* **Calculation**:
+  $$\text{Total Bill} = (\text{NumberOfDays} \times \text{RoomCharge}) + \text{ConsultFee}$$
 
 ---
 
-## 🚀 How to Run
+## 📁 Project Structure
 
-1. Open your Java IDE (IntelliJ IDEA, Eclipse, etc.).
-2. Ensure all files are placed inside a folder/package named **`HOSPITAL`**.
-3. Compile and run **`HospitalReception.java`** to see the console output.
-Data_Structures_Using_Java
+```text
+src/
+└── hospital/
+    ├── Patient.java       # Superclass
+    ├── Outpatient.java    # Subclass for outpatients
+    ├── Inpatient.java     # Subclass for inpatients
+    └── Main.java          # Driver class to run & test
